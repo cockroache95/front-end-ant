@@ -1,25 +1,43 @@
-import logo from './logo.svg';
-import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import './App.css'
+import { Layout } from 'antd'
+import React from 'react';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import MainLayout from './layouts/MainLayout'
+import EventPage from './pages/EventPage';
+import ProcessPage from './pages/ProcessPage';
+
+const getBasename = () => {
+  return `/${process.env.PUBLIC_URL.split('/').pop()}`;
+};
+
+
+class App extends React.Component {
+  state = {
+    collapsed: false,
+  };
+
+  toggle = () => {
+    this.setState({
+      collapsed: !this.state.collapsed,
+    });
+  };
+
+
+  render() {
+    return (
+      <Layout className="App">
+        <BrowserRouter basename={getBasename()}>
+          <Switch>
+            <MainLayout>
+              <Route exact path="/web/events" component={EventPage} />
+              <Route exact path="/web/processes" component={ProcessPage} />
+            </MainLayout>
+          </Switch>
+        </BrowserRouter>
+      </Layout>
+    );
+  }
 }
 
 export default App;
