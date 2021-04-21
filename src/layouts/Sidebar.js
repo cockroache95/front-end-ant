@@ -24,8 +24,8 @@ class Sidebar extends React.Component {
                 <div className="logo" align="center" style={{ color: 'white' }}>
                     <NavLink to="/web/events">HELLO</NavLink>
 
-                </div>
-
+                </div >
+               
                 <Menu theme="dark" mode="inline" >
                     <Menu.Item key="events" icon={<BellOutlined />}>
                         <NavLink to="/web/events"></NavLink>
@@ -36,6 +36,7 @@ class Sidebar extends React.Component {
                         Processes
                     </Menu.Item>
                 </Menu>
+                
             </Sider>
         );
     }

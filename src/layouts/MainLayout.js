@@ -1,8 +1,8 @@
-import { Layout } from 'antd';
+import { Layout, Col } from 'antd';
 import React from 'react';
 import Sidebar from './Sidebar';
 import { MenuUnfoldOutlined, MenuFoldOutlined } from '@ant-design/icons';
-const { Footer, Content, Header } = Layout;
+const { Content, Header } = Layout;
 
 class MainLayout extends React.Component {
     state = {
@@ -23,13 +23,14 @@ class MainLayout extends React.Component {
                 <Sidebar collapsed={this.state.collapsed} ></Sidebar>
 
                 <Layout className="site-layout">
-                    <Header className="site-layout-background" style={{ padding: 0, height:"10vh" }} >
+                    {/* <Header className="site-layout-background" style={{ padding: 0, height:"10vh" }} >
+                        <Col>
                         {React.createElement(this.state.collapsed ? MenuUnfoldOutlined : MenuFoldOutlined, {
                             className: 'trigger',
                             onClick: this.toggle.bind(this),
                         })}
-                        Hi Hi Hi Hi
-                    </Header>
+                        </Col>
+                    </Header> */}
                     <Content>
                         {children}
                     </Content>
